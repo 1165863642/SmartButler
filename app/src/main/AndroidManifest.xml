@@ -25,6 +25,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:authorities="SmartButler.BmobContentProvider"
+            android:name="cn.bmob.v3.util.BmobContentProvider"/>
         <activity android:name=".MainActivity">
 
         </activity>

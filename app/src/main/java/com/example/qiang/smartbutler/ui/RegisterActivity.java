@@ -2,6 +2,7 @@ package com.example.qiang.smartbutler.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.qiang.smartbutler.R;
 import com.example.qiang.smartbutler.entity.MyUser;
+import com.example.qiang.smartbutler.utils.L;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +29,7 @@ import cn.bmob.v3.listener.SaveListener;
  *  描述：     注册
  */
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends BaseActivity {
     @BindView(R.id.et_user)
     EditText etUser;
     @BindView(R.id.et_age)
@@ -94,22 +96,24 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (TextUtils.isEmpty(desc))
                     desc = "这个人很懒，什么都没留下";
-                final MyUser user = new MyUser();
+                MyUser user = new MyUser();
                 user.setUsername(name);
                 user.setPassword(pass);
                 user.setEmail(email);
-                user.setAge(Integer.parseInt(age));
+//                user.setAge(Integer.parseInt(age));
                 user.setDesc(desc);
+                user.setSex(isGender);
                 user.signUp(new SaveListener<MyUser>() {
                     @Override
                     public void done(MyUser user, BmobException e) {
                         if (e == null) {
-//                            Snackbar.make(this, "注册成功", Snackbar.LENGTH_LONG).show();
-                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(getCurrentFocus(), "注册成功", Snackbar.LENGTH_LONG).show();
+//                            Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-//                            Snackbar.make(getCurrentFocus(), "尚未失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
-                            Toast.makeText(RegisterActivity.this, "注册失败" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Snackbar.make(getCurrentFocus(), "尚未失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
+//                            Toast.makeText(RegisterActivity.this, "注册失败" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            L.i(e.getMessage() + e.getErrorCode());
                         }
                     }
                 });

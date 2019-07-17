@@ -4,7 +4,7 @@ package com.example.qiang.smartbutler.entity;
  *  包名  ：  com.example.qiang.smartbutler.entity
  *  创建时间： 2019-07-16 22:15
  *  创建人：   Qiang
- *  描述：     TODO
+ *  描述：     用户属性
  */
 
 import cn.bmob.v3.BmobUser;

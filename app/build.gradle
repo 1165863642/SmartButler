@@ -13,7 +13,7 @@ android {
 
         ndk {
             // 设置支持的SO库架构
-            abiFilters 'armeabi','x86' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi', 'x86' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
     buildTypes {
@@ -36,19 +36,18 @@ dependencies {
     //Butter Knife
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
-    implementation 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
-    implementation 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.00
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.00
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
 
     //bmob
     implementation 'cn.bmob.android:bmob-sdk:3.7.3-rc1'
+//    implementation 'cn.bmob.android:bmob-sdk:3.5.0'
     implementation "io.reactivex.rxjava2:rxjava:2.2.2"
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     implementation 'com.squareup.okio:okio:2.1.0'
     implementation 'com.google.code.gson:gson:2.8.5'
-//    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-//    implementation 'cn.bmob.android:bmob-sdk:3.4.6'
-//    implementation 'com.squareup.okhttp:okhttp:2.4.0'//CDN文件服务使用okhttp相关包进行文件的上传和下载（必填）
-//    implementation 'com.squareup.okio:okio:1.4.0'
-//    implementation 'cn.bmob.android:http-legacy:1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 
 }
